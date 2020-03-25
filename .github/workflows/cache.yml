@@ -35,9 +35,7 @@ jobs:
       run: |
         chmod +x heavy.sh
         ./heavy.sh
-        find .
-        cat cache
-
+    - run: find .
     - name: output heavy
       run: |
         echo ------
