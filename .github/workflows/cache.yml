@@ -44,5 +44,4 @@ jobs:
         ./calc.sh > result
     - name: output result
       run: |
-        find .
         cat result
