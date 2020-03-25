@@ -1,4 +1,4 @@
 for a in {1..100}
   do
-    echo $a
+    echo $a >> heavy.output
    done
