@@ -25,3 +25,11 @@ jobs:
           echo data.txt
           cat ./data.txt
           echo ----- End -----
+      
+      # Runs with a secert
+      - name: tell me the secrets
+        run: |
+          echo $name
+        env:
+          name:  ${{ secrets.MY_NAME }}
+        
