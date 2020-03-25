@@ -6,7 +6,6 @@ name: cache
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -29,7 +28,17 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
-
     - name: install
-      if: cache-primes.outputs.cache-hit != 'true'
+      if: steps.cache-primes.outputs.cache-hit != 'true'
       run: mvn install
+
+    - uses: actions/cache@v1
+      id: cache-numbers
+      with:
+        path: ./
+        key: ${{ runner.os }}-numbers-${{ hashFiles('**/numbers') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+    - name: install
+      if: steps.cache-numbers.outputs.cache-hit != 'true'
+      run: ./calc.sh
