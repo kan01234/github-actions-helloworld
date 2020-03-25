@@ -22,14 +22,33 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    # use cache to cache dependencies
     - uses: actions/cache@v1
+      # id for cache
       id: cache-pom
       with:
+        # directory for cache
         path: ~/.m2/repository
+        # key for cache
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
-
-    - name: install
-      if: cache-primes.outputs.cache-hit != 'true'
+    - name: maven install 
+      # skip if cache hit
+      if: steps.cache-pom.outputs.cache-hit != 'true'
       run: mvn install
+
+    - uses: actions/cache@v1
+      id: cache-calc
+      with:
+        path: ./cache
+        key: ${{ runner.os }}-numbers-${{ hashFiles('**/numbers') }}-${{ hashFiles('**/calc.sh') }}
+    - name: calc result
+      if: steps.cache-calc.outputs.cache-hit != 'true'
+      run: |
+        chmod +x ./calc.sh
+        mkdir cache
+        ./calc.sh > ./cache/result
+    - name: output result
+      run: |
+        cat ./cache/result 
