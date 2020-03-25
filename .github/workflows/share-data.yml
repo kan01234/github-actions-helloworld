@@ -37,8 +37,8 @@ jobs:
           name: plus-result
       - shell: bash
         run: |
-          value=`cat homework/plus-result.txt`
-          expr $value \* 9 > homework/plus-result.txt
+          value=`cat plus-result/plus-result.txt`
+          expr $value \* 9 > plus-result/plus-result.txt
       - name: upload multiply result
         uses: actions/upload-artifact@v1
         with:
