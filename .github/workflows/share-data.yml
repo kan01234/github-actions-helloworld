@@ -48,3 +48,15 @@ jobs:
         run: |
           find . 
           cat ./multiply-result.txt
+  output:
+    name: output
+    needs: multiply
+    runs-on: ubuntu-latest
+    steps:
+      - name: download multiply result
+        uses: actions/download-artifact@v1
+        with:
+          name: multiply-result
+      - run: |
+          find .
+          cat ./multiply-result/multiply-result.txt
