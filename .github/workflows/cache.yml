@@ -42,3 +42,5 @@ jobs:
       run: |
         chmod +x ./calc.sh
         ./calc.sh
+    - name: output result
+      run: cat result
