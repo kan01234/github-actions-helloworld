@@ -22,4 +22,5 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: plus-result
-          path: plus-result.txt
+          path: plus-result.txt  
+      - run: find . 
