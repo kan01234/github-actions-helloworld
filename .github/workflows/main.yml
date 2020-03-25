@@ -14,5 +14,8 @@ jobs:
     steps:
       # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
+      # run tree command
+      - name: tree
+        run: tree
       # This step references the directory that contains the action.
       - uses: ./github-actions-helloworld/.github/actions/
