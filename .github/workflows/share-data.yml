@@ -25,7 +25,7 @@ jobs:
           path: plus-result.txt  
       - run: |
           find . 
-          cat plus-result.txt
+          cat ./plus-result.txt
   multiply:
     name: multiply
     needs: plus
@@ -37,13 +37,13 @@ jobs:
           name: plus-result
       - shell: bash
         run: |
-          value=`cat homework/math-homework.txt`
-          expr $value \* 9 > homework/math-homework.txt
-      - name: Upload multiply result for job 2
+          value=`cat homework/plus-result.txt`
+          expr $value \* 9 > homework/plus-result.txt
+      - name: upload multiply result
         uses: actions/upload-artifact@v1
         with:
           name: plus-result
           path: plus-result.txt  
       - run: |
           find . 
-          cat plus-result.txt
+          cat ./plus-result.txt
