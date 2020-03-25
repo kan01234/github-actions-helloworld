@@ -37,4 +37,6 @@ jobs:
         ./heavy.sh
 
     - name: output heavy
-      run: cat ./heavy.output
+      run: |
+        echo ------
+        cat ./heavy.output
