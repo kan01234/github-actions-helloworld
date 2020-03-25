@@ -37,8 +37,6 @@ jobs:
       with:
         path: ./
         key: ${{ runner.os }}-numbers-${{ hashFiles('**/numbers') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
     - name: calc result
       if: steps.cache-numbers.outputs.cache-hit != 'true'
       run: |
