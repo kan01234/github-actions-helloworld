@@ -35,13 +35,13 @@ jobs:
     - uses: actions/cache@v1
       id: cache-numbers
       with:
-        path: ./
+        path: ./calc
         key: ${{ runner.os }}-numbers
     - name: calc result
-      if: steps.cache-numbers.outputs.cache-hit != 'true'
       run: |
         chmod +x ./calc.sh
-        ./calc.sh > result
+        ./calc.sh > ./calc/result
     - name: output result
       run: |
-        cat result
+        find ./calc
+        cat ./calc/result
