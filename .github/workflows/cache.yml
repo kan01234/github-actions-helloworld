@@ -31,7 +31,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: heavy
-      if: steps.cache-heavy-2.outputs.cache-hit != 'true'
+      if: steps.cache-heavy.outputs.cache-hit != 'true'
       run: |
         chmod +x heavy.sh
         ./heavy.sh
