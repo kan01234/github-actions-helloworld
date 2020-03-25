@@ -33,12 +33,12 @@ jobs:
       run: mvn install
 
     - uses: actions/cache@v1
-      id: cache-calc-1
+      id: cache-calc
       with:
         path: ./cache
         key: ${{ runner.os }}-numbers-${{ hashFiles('**/numbers') }}-${{ hashFiles('**/calc.sh') }}
     - name: calc result
-      if: steps.cache-calc-1.outputs.cache-hit != 'true'
+      if: steps.cache-calc.outputs.cache-hit != 'true'
       run: |
         chmod +x ./calc.sh
         mkdir cache
