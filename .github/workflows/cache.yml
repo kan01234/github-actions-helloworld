@@ -31,5 +31,4 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: install
-      if: steps.cache-pom.outputs.cache-hit != 'true'
       run: mvn install
