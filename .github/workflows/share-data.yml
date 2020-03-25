@@ -42,8 +42,8 @@ jobs:
       - name: upload multiply result
         uses: actions/upload-artifact@v1
         with:
-          name: plus-result
-          path: plus-result.txt  
+          name: plus-result/
+          path: plus-result/plus-result.txt  
       - run: |
           find . 
-          cat ./plus-result.txt
+          cat ./plus-result/plus-result.txt
