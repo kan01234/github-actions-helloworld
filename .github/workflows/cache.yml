@@ -31,4 +31,5 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: install
+      if: cache-primes.outputs.cache-hit != 'true'
       run: mvn install
