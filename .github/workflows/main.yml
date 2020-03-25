@@ -35,7 +35,4 @@ jobs:
       - name: display secrets
         run: |
           cat ./secert.txt
-      - name: fail
-        run: |
-          cat aaa.txt
         
