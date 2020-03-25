@@ -26,7 +26,7 @@ jobs:
       id: cache-heavy
       uses: actions/cache@v1
       with:
-        path: heavy
+        path: cache
         key: ${{ runner.os }}-heavy-2
 
     # Runs a single command using the runners shell
@@ -35,6 +35,8 @@ jobs:
       run: |
         chmod +x heavy.sh
         ./heavy.sh
+        find .
+        cat cache
 
     - name: output heavy
       run: |
