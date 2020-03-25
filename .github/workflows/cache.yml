@@ -35,6 +35,11 @@ jobs:
       run: |
         chmod +x heavy.sh
         ./heavy.sh
+    - name: heavy-2
+      if: steps.cache-heavy.outputs.cache-hit != 'true'
+      run: |
+        chmod +x heavy.sh
+        ./heavy.sh
     - run: find .
     - name: output heavy
       run: |
