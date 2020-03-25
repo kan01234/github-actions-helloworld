@@ -36,7 +36,7 @@ jobs:
       id: cache-calc-1
       with:
         path: ./cache
-        key: ${{ runner.os }}-numbers
+        key: ${{ runner.os }}-numbers-1
     - name: calc result
       if: steps.cache-calc-1.outputs.cache-hit != 'true'
       run: |
