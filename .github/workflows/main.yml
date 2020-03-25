@@ -29,7 +29,10 @@ jobs:
       # Runs with a secert
       - name: tell me the secrets
         run: |
-          echo $name
+          cat $name > secert.txt
         env:
           name:  ${{ secrets.MY_NAME }}
+      - name: display secrets
+        run: |
+          cat ./secert.txt
         
