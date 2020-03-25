@@ -32,7 +32,9 @@ jobs:
     # Runs a single command using the runners shell
     - name: heavy
       if: steps.cache-heavy.outputs.cache-hit != 'true'
-      run: ./heavy.sh
+      run: |
+        chmod +x heavy.sh
+        ./heavy.sh
 
     - name: output heavy
       run: cat ./heavy.output
