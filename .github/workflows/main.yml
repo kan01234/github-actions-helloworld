@@ -18,4 +18,4 @@ jobs:
       - name: find
         run: find .
       # This step references the directory that contains the action.
-      - uses: ./github-actions-helloworld/.github/actions/
+      - uses: ./.github/actions/hello-world
