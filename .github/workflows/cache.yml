@@ -36,14 +36,13 @@ jobs:
       id: cache-calc-1
       with:
         path: ./cache
-        key: ${{ runner.os }}-numbers-${{ hashFiles('**/numbers') }}
+        key: ${{ runner.os }}-numbers-${{ hashFiles('**/numbers') }}-${{ hashFiles('**/calc.sh') }}
     - name: calc result
       if: steps.cache-calc-1.outputs.cache-hit != 'true'
       run: |
-        chmod +x ./calc.sh
+        chmod +x ./calc.sh r
         mkdir cache
         ./calc.sh > ./cache/result
     - name: output result
       run: |
-        ls ./cache
         cat ./cache/result 
