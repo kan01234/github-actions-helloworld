@@ -33,7 +33,7 @@ jobs:
       run: mvn install
 
     - uses: actions/cache@v1
-      id: cache-numbers
+      id: cache-calc
       with:
         path: ./calc
         key: ${{ runner.os }}-numbers
