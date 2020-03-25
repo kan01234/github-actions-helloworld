@@ -23,6 +23,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: actions/cache@v1
+      id: cache-pom
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -30,4 +31,5 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: install
+      if: steps.cache-pom.outputs.cache-hit != 'true'
       run: mvn install
