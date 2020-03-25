@@ -21,27 +21,13 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
-    - name: cache heavy
-      id: cache-heavy
-      uses: actions/cache@v1
-      with:
-        path: ./heavy
-        key: ${{ runner.os }}-cache-heavy
 
-    # Runs a single command using the runners shell
-    - name: heavy
-      if: steps.cache-heavy.outputs.cache-hit != 'true'
-      run: |
-        chmod +x heavy.sh
-        ./heavy.sh
-    - name: heavy-2
-      if: steps.cache-heavy.outputs.cache-hit != 'true'
-      run: |
-        chmod +x heavy.sh
-        ./heavy.sh
-    - run: find .
-    - name: output heavy
-      run: |
-        echo ------
-        cat ./heavy
+    - uses: actions/cache@v1
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+    - name: install
+      run: mvn install
