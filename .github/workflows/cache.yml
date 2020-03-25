@@ -40,7 +40,7 @@ jobs:
     - name: calc result
       run: |
         chmod +x ./calc.sh
-        ./calc.sh
+        ./calc.sh > result
     - name: output result
       run: |
         find .
