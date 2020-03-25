@@ -38,10 +38,11 @@ jobs:
         path: ./calc
         key: ${{ runner.os }}-numbers
     - name: calc result
+      if: steps.cache-calc.outputs.cache-hit != 'true'
       run: |
         chmod +x ./calc.sh
         ./calc.sh > ./calc/result
     - name: output result
       run: |
-        find ./calc
+        ls ./calc
         cat ./calc/result
