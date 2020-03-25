@@ -40,7 +40,7 @@ jobs:
     - name: calc result
       if: steps.cache-calc-1.outputs.cache-hit != 'true'
       run: |
-        chmod +x ./calc.sh r
+        chmod +x ./calc.sh
         mkdir cache
         ./calc.sh > ./cache/result
     - name: output result
