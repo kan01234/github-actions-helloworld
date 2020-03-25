@@ -26,12 +26,12 @@ jobs:
       id: cache-heavy
       uses: actions/cache@v1
       with:
-        path: max
-        key: ${{ runner.os }}-heavy-2
+        path: ./heavy
+        key: cache-heavy
 
     # Runs a single command using the runners shell
     - name: heavy
-      if: steps.cache-heavy-2.outputs.cache-hit != 'true'
+      if: steps.cache-heavy.outputs.cache-hit != 'true'
       run: |
         chmod +x heavy.sh
         ./heavy.sh
