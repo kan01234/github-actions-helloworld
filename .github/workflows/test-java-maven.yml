@@ -26,4 +26,4 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       # maven test, package
       - name: mavn build
-        run: mvn -B verify package --file pom.xml
+        run: mvn -B package --file pom.xml
