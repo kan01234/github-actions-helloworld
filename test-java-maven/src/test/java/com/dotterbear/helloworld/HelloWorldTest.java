@@ -9,8 +9,8 @@ public class HelloWorldTest {
   @Test
   public void greetingTest() {
     HelloWorld helloWorld = new HelloWorld();
-    String name = "Foo";
-    assertEquals(name + HelloWorld.GREETING_PREFIX, helloWorld.greeting(name));
+    final String name = "Foo";
+    assertEquals(HelloWorld.GREETING_PREFIX + name, helloWorld.greeting(name));
   }
 
 }
