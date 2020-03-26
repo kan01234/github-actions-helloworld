@@ -25,14 +25,19 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       # maven package
-      - name: mavn build
+      - name: maven build
         run: |
           mvn -B package --file ./test-java-maven/pom.xml
+      # cp jar
+      - name: cp jar
+        run: |
+          mkdir jars
+          cp ./test-java-maven/target/*.jar jars
       # upload jar
       - name: upload jar
         uses: actions/upload-artifact@v1.0.0
         with:
           # Artifact name
-          name: target
+          name: builded-jars
           # Directory containing files to upload
-          path: ./test-java-maven/target
+          path: ./jars
