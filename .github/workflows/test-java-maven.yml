@@ -2,7 +2,6 @@ name: test-java-maven
 
 on:
   push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 jobs:
@@ -32,6 +31,7 @@ jobs:
       # cp jar
       - name: cp jar
         run: |
+          find .
           mkdir jars
           cp ./test-java-maven/target/*.jar jars
       # upload jar
