@@ -12,7 +12,7 @@
 		<java.version>1.8</java.version>
 		<junit.version>5.4.2</junit.version>
 		<maven.unit.test.version>2.22.0</maven.unit.test.version>
-		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.verson>
+		<maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
 	</properties>
 
 	<dependencies>
@@ -42,7 +42,7 @@
         			<!-- Build an executable JAR -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar-plugin.version}</version>
+				<version>${maven.jar.plugin.version}</version>
 				<configuration>
 					<archive>
 						<manifest>
