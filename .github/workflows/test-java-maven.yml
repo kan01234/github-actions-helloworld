@@ -27,7 +27,7 @@ jobs:
       # maven package
       - name: maven build
         run: |
-          mvn -B package --file ./test-java-maven/pom.xml
+          mvn clean -B package --file ./test-java-maven/pom.xml
       # cp jar
       - name: cp jar
         run: |
