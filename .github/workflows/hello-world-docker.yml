@@ -12,11 +12,11 @@ jobs:
       uses: actions/checkout@v2
     - run: |
         find .
-    - name: Hello world action step
-      id: hello
+    - name: hello-world-docker-action
+      id: hello-world-docker-action
       uses: ./.github/actions/hello-world-docker-action
       with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+        name: foofoo
+    # Use the output from the hello-world-docker-action step
+    - name: output docker end time
+      run: echo "docker end time ${{ steps.hello-world-docker-action.outputs.time }}"
