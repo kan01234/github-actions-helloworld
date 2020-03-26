@@ -10,7 +10,7 @@ public class HelloWorldTest {
   public void greetingTest() {
     HelloWorld helloWorld = new HelloWorld();
     final String name = "Foo";
-    assertEquals(HelloWorld.GREETING_PREFIX + name, helloWorld.greeting(name));
+    assertEquals(HelloWorld.GREETING_PREFIX, helloWorld.greeting(name));
   }
 
 }
