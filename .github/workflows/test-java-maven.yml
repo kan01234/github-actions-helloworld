@@ -28,7 +28,6 @@ jobs:
       - name: mavn build
         run: |
           mvn -B package --file ./test-java-maven/pom.xml
-          find .
       # upload jar
       - name: upload jar
         uses: actions/upload-artifact@v1.0.0
