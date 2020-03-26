@@ -11,8 +11,8 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<java.version>1.8</java.version>
 		<junit.version>5.4.2</junit.version>
-    <maven.unit.test.version>2.22.0</maven.unit.test.version>
-    <maven-jar-plugin.version>3.0.2</maven-jar-plugin.verson>
+		<maven.unit.test.version>2.22.0</maven.unit.test.version>
+		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.verson>
 	</properties>
 
 	<dependencies>
@@ -39,20 +39,20 @@
 				<version>${maven.unit.test.version}</version>
 			</plugin>
 			<plugin>
-        <!-- Build an executable JAR -->
+        			<!-- Build an executable JAR -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar-plugin}</version>
+				<version>${maven-jar-plugin.version}</version>
 				<configuration>
-          <archive>
-				    <manifest>
-				      <addClasspath>true</addClasspath>
-				      <classpathPrefix>lib/</classpathPrefix>
-				      <mainClass>com.dotterbear.helloworld.Main</mainClass>
-				    </manifest>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.dotterbear.helloworld.Main</mainClass>
+						</manifest>
 					</archive>
 				</configuration>
-      </plugin>
+			</plugin>
 		</plugins>
 	</build>
 
