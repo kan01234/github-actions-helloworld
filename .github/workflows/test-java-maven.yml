@@ -1,0 +1,45 @@
+name: test-java-maven
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # checkout
+      - name: checkout
+        uses: actions/checkout@v2
+      # set up jdk
+      - name: set up jdk
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      # cache maven dependencies
+      - name: cache maven dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      # maven package
+      - name: maven build
+        run: |
+          mvn clean -B package --file ./test-java-maven/pom.xml
+      # cp jar
+      - name: cp jar
+        run: |
+          find .
+          mkdir jars
+          cp ./test-java-maven/target/*.jar jars
+      # upload jar
+      - name: upload jar
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          # Artifact name
+          name: builded-jars
+          # Directory containing files to upload
+          path: ./jars
