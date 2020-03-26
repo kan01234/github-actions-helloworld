@@ -10,7 +10,7 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<java.version>1.8</java.version>
 		<junit.version>5.4.2</junit.version>
-    		<maven.unit.test.version>2.2.0</maven.unit.test>
+    		<maven.unit.test.version>2.2.0</maven.unit.test.version>
 	</properties>
 
 	<dependencies>
