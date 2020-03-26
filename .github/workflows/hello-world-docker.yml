@@ -1,7 +1,10 @@
-on: [push]
+name: hello-world-docker
+
+on:
+  push:
 
 jobs:
-  hello_world_job:
+  hello-world:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
