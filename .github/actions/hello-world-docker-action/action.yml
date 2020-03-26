@@ -1,0 +1,16 @@
+# action.yml
+name: hello-world
+description: greeting
+inputs:
+  name:  # id of input
+    description: name
+    required: true
+    default: ''
+outputs:
+  end-time: # id of output
+    description: execute end time
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.name }}

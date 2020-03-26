@@ -1,0 +1,23 @@
+name: hello-world-docker
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    # checkout
+    - name: checkout
+      uses: actions/checkout@v2
+    # use local action
+    - name: hello-world-docker-action
+      id: hello-world-docker-action
+      uses: ./.github/actions/hello-world-docker-action
+      with:
+        name: foofoo
+    # Use the output from the hello-world-docker-action step
+    - name: output docker end time
+      run: echo "docker end time ${{ steps.hello-world-docker-action.outputs.time }}"
