@@ -9,4 +9,4 @@ inputs:
 outputs:
   text: # id of output
     description: execute end time
-run: echo ${{ inputs.name }}
+run: echo hello world
