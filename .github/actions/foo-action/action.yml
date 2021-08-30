@@ -9,4 +9,5 @@ inputs:
 outputs:
   text: # id of output
     description: execute end time
+runs: ubuntu-latest
 run: echo hello world
