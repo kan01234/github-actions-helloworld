@@ -10,6 +10,5 @@ outputs:
   text: # id of output
     description: execute end time
 runs:
-  using: ubuntu-latest
+  using: shell
   run: echo hello
-
